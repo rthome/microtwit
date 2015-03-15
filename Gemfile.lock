@@ -241,4 +241,3 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 2.5.3)
   web-console (~> 2.0.0)
-  win32console

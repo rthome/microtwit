@@ -3,32 +3,12 @@
 <h1>Register for Microtwit</h1>
 <div>
   <div>
-    <%= form_for @user do |f| %>
-        <%= render 'shared/flashed_errors' %>
-
-        <p>
-          <%= f.label :name %>
-          <%= f.text_field :name %>
-        </p>
-
-        <p>
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-        </p>
-
-        <p>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-        </p>
-
-        <p>
-        <%= f.label :password_confirmation, "Confirmation" %>
-        <%= f.password_field :password_confirmation %>
-        </p>
-
-        <p>
-        <%= f.submit "Create account", class: "btn btn-primary btn-lg" %>
-        </p>
+    <%= simple_form_for @user do |f| %>
+        <%= f.input :name %>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.input :password_confirmation %>
+        <%= f.button :submit, 'Create account' %>
     <% end %>
   </div>
 </div>

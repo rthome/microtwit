@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :users
+  root 'static_pages#home'
 
-  root to: 'static_pages#home'
-  
-  match '/register', to: 'users#new', via: 'get'
+  get 'register' => 'users#new'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
+  resources :users
 end

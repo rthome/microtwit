@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 5.0.1'
@@ -17,6 +17,7 @@ group :development, :test do
   gem 'byebug', '~> 3.4.0'
   gem 'web-console', '~> 2.0.0'
   gem 'spring', '~> 1.1.3'
+  gem 'win32console', platforms: [:mingw, :mswin]
 end
 
 group :test do

@@ -1,4 +1,9 @@
 john:
   name: John Testington
   email: johnt@testington.test
-  password_digest: <%= User.digest('gobblegobble') %>
+  password_digest: <%= User.digest('password') %>
+
+mary:
+  name: Mary Examples
+  email: me@org.com
+  password_digest: <%= User.digest('password') %>

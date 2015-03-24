@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessor :persistent_session_token
+  attr_accessor :persistent_session_token, :activation_token
 
-  before_save { self.email = email.downcase }
+  before_save :downcase_email
+  before_create :create_activation_digest
 
   validates :name,
             presence: true,
@@ -37,4 +38,14 @@ class User < ActiveRecord::Base
     return false if persistent_session_digest.nil?
     BCrypt::Password.new(persistent_session_digest).is_password?(session_token)
   end
+
+  private
+    def downcase_email
+      self.email = email.downcase
+    end
+
+    def create_activation_digest
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest activation_token
+    end
 end

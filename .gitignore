@@ -15,8 +15,5 @@
 /log/*.log
 /tmp
 
-.idea/workspace.xml
-.idea/dictionaries/Raffael.xml
-.idea/dataSources*
-.idea/runConfigurations
-.idea/Microtwit.iml
+# Just ignore the RubyMine stuff
+.idea

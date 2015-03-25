@@ -1,5 +1,11 @@
-<h1>UserMailer#account_activation</h1>
-
 <p>
-  <%= @greeting %>, find me in app/views/user_mailer/account_activation.html.erb
+  Hi <%= @user.name %>,
+</p>
+<p>
+  Welcome to Microtwit! To activate your account, please click the link below:
+</p>
+<%= link_to 'Activation', edit_account_activation_url(@user.activation_token) %>
+<p>
+  Thanks, <br>
+  The Microtwit Team
 </p>

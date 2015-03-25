@@ -2,7 +2,7 @@ Hi <%= @user.name %>,
 
 Welcome to Microtwit! To activate your account, please click the link below:
 
-<%= edit_account_activation_url(@user.activation_token) %>
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
 
 Thanks,
 The Microtwit Team

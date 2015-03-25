@@ -18,9 +18,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:sucess] = 'Welcome to Microtwit!'
-      redirect_to @user
+      UsersMailer.account_activation(@user).deliver_now
+      flash[:info] = 'An email with instructions to activate your account has been sent.'
+      redirect_to root_url
     else
       render 'new'
     end

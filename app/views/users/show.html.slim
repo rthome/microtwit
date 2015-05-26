@@ -5,3 +5,10 @@
       h1
         = gravatar_for @user
         = @user.name
+  .col-md-8
+    - if @user.chirps.any?
+      .page-header
+        h3 Chirps (#{@user.chirps.count})
+      ul.chirps
+        = render @chirps
+      = will_paginate @chirps

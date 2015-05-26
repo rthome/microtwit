@@ -60,6 +60,37 @@ input {
   }
 }
 
+.chirps {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: 10px 0;
+  }
+  li + li {
+    border-top: 1px solid $gray-light;
+  }
+
+  .user {
+    padding-top: 0;
+  }
+
+  .content {
+    display: block;
+  }
+
+  .timestamp {
+    color: $gray-light;
+    display: block;
+  }
+
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
 .debug_dump {
   clear: both;
   float: left;

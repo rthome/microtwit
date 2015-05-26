@@ -1,0 +1,7 @@
+li.chirp id="chirp-#{chirp.id}"
+  = link_to gravatar_for(chirp.user, size: 50), chirp.user
+  span.user
+    = link_to chirp.user.name, chirp.user
+  span.content
+    = chirp.content
+  span.timestamp Posted #{time_ago_in_words(chirp.created_at)} ago.

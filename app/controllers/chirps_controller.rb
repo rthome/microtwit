@@ -1,0 +1,2 @@
+class ChirpsController < ApplicationController
+end

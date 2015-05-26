@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :chirps, dependent: :destroy
+
   attr_accessor :persistent_session_token
 
   before_save { self.email = email.downcase }

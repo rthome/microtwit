@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.2.0'
+gem 'rails', '~> 4.2.0'
 gem 'sass-rails', '~> 5.0.1'
 gem 'bootstrap-sass', '~> 3.3.3'
+gem 'slim-rails'
 gem 'uglifier', '>= 2.5.3'
 gem 'jquery-rails', '~> 4.0.3'
 gem 'jbuilder', '~> 2.2.3'

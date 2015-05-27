@@ -1,0 +1,16 @@
+- if logged_in?
+  .row
+    aside.col-md-4
+      section.user-info
+        = render 'shared/user_info'
+      section.chirp-form
+        = render 'shared/chirp_form'
+    section.col-md-8
+      h3 Your Feed
+      = render 'shared/feed'
+- else
+  .jumbotron
+    h1 Welcome to Microtwit
+    p It's like Twitter, except shitty and with no users.
+    p
+      = link_to "Register now!", register_path, class: "btn btn-primary btn-lg"

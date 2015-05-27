@@ -1,0 +1,5 @@
+= simple_form_for @chirp do |f|
+  = render 'shared/flashed_errors', object: f.object
+  .field
+    = f.text_area :content, placeholder: "What's on your mind?"
+  = f.submit 'Post', class: 'btn btn-primary'

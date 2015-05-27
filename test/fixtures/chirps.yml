@@ -1,0 +1,28 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: 10 minutes ago
+  created_at: <%= 10.minutes.ago %>
+  user: john
+
+two:
+  content: A long time ago
+  created_at: <%= 2.year.ago %>
+  user: john
+
+three:
+  content: Some time ago
+  created_at: <%= 2.weeks.ago %>
+  user: mary
+
+most_recent:
+  content: Just now!
+  created_at: <%= Time.zone.now %>
+  user: mary
+
+<% 40.times do |n| %>
+chirp_<%= n %>:
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= (n+1).days.ago %>
+  user: john
+<% end %>

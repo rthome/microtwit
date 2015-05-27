@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :chirps, dependent: :destroy
+
   attr_accessor :persistent_session_token
 
   before_save { self.email = email.downcase }
@@ -36,5 +38,9 @@ class User < ActiveRecord::Base
   def authenticated?(session_token)
     return false if persistent_session_digest.nil?
     BCrypt::Password.new(persistent_session_digest).is_password?(session_token)
+  end
+
+  def feed
+    chirps
   end
 end

@@ -1,0 +1,4 @@
+- if @feed_entries.any?
+  ul.chirps
+    = render @feed_entries
+  = will_paginate @feed_entries

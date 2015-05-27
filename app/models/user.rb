@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
     return false if persistent_session_digest.nil?
     BCrypt::Password.new(persistent_session_digest).is_password?(session_token)
   end
+
+  def feed
+    chirps
+  end
 end

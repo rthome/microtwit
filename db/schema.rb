@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526103225) do
+ActiveRecord::Schema.define(version: 20150528160428) do
 
   create_table "chirps", force: :cascade do |t|
     t.text     "content"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20150526103225) do
 
   add_index "chirps", ["user_id", "created_at"], name: "index_chirps_on_user_id_and_created_at"
   add_index "chirps", ["user_id"], name: "index_chirps_on_user_id"
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "follows", ["followed_id"], name: "index_follows_on_followed_id"
+  add_index "follows", ["follower_id", "followed_id"], name: "index_follows_on_follower_id_and_followed_id", unique: true
+  add_index "follows", ["follower_id"], name: "index_follows_on_follower_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

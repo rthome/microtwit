@@ -1,5 +1,15 @@
 class User < ActiveRecord::Base
   has_many :chirps, dependent: :destroy
+  has_many :follow_relationships,
+           class_name: 'Follow',
+           foreign_key: 'follower_id',
+           dependent: :destroy
+  has_many :follower_relationships,
+           class_name: 'Follow',
+           foreign_key: 'followed_id',
+           dependent: :destroy
+  has_many :follows, through: :follow_relationships, source: :followed # People this user follows
+  has_many :followers, through: :follower_relationships, source: :follower # People this user is followed by
 
   attr_accessor :persistent_session_token
 
@@ -42,5 +52,17 @@ class User < ActiveRecord::Base
 
   def feed
     chirps
+  end
+
+  def follow(other)
+    follow_relationships.create(followed_id: other.id)
+  end
+
+  def unfollow(other)
+    follow_relationships.find_by(followed_id: other.id).destroy
+  end
+
+  def following?(other)
+    follows.include?(other)
   end
 end

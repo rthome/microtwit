@@ -47,6 +47,14 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def follows
+
+  end
+
+  def followers
+
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)

@@ -21,3 +21,10 @@ users.each do |user|
     user.chirps.create!(content: content)
   end
 end
+
+users = User.all
+first_user = User.first
+follows = users[2..5]
+followers = users[6..10]
+follows.each { |f| first_user.follow(f) }
+followers.each { |f| f.follow(first_user) }

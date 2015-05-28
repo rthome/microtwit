@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  resources :users
+  resources :users do
+    member do
+      get :follows, :followers
+    end
+  end
   resources :chirps, only: [:create, :destroy]
 end

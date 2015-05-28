@@ -1,0 +1,12 @@
+ruby:
+  @user ||= current_user
+
+.follow-stats
+  a href=follows_user_path(@user)
+    strong#follows.stat
+      = @user.follows.count
+    |  follows
+  a href=followers_user_path(@user)
+    strong#followers.stat
+      = @user.followers.count
+    |  followers

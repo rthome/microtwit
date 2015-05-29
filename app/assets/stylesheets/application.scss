@@ -5,36 +5,49 @@
 }
 
 aside {
+  section {
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      margin-bottom: 3px;
+      margin-top: 0;
+    }
+  }
+
   section.user-info {
     margin-top: 20px;
     .gravatar {
       margin-top: 5px;
     }
   }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
+
+  .follow-stats {
+    text-align: center;
+    a {
+      &:first-child {
+        padding-right: 10px;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
     }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
+
+    a + a {
+      border-left: 1px solid lightgray;
+      padding-left: 10px;
     }
   }
 }
 
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
+  border: 1px solid lightgray;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
@@ -42,6 +55,10 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+}
+
+.chirparea {
+  margin-bottom: 5px;
 }
 
 .gravatar {
@@ -59,7 +76,7 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid lightgray;
   }
 }
 
@@ -71,7 +88,7 @@ input {
     padding: 10px 0;
   }
   li + li {
-    border-top: 1px solid $gray-light;
+    border-top: 1px solid lightgray;
   }
 
   .user {
@@ -83,7 +100,7 @@ input {
   }
 
   .timestamp {
-    color: $gray-light;
+    color: gray;
     display: block;
   }
 

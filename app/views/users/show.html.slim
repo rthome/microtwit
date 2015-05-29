@@ -1,12 +1,12 @@
 - provide :title, @user.name
 .row
   aside.col-md-4
-    section.user-info
-      h1
-        = gravatar_for @user
-        = @user.name
+    section.user-info = render 'shared/user_info'
   .col-md-8
     - if @user.chirps.any?
       .page-header
-        h3 Chirps (#{@user.chirps.count})
+        h3
+          ' Chirps
+          small
+            = @user.chirps.count
       = render 'shared/feed'

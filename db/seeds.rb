@@ -16,7 +16,7 @@ end
 
 users = User.order(:created_at).take(10)
 users.each do |user|
-  30.times do
+  100.times do
     content = Faker::Lorem.sentence(5)
     user.chirps.create!(content: content)
   end

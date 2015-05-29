@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     end
   end
   resources :chirps, only: [:create, :destroy]
+  resources :follows, only: [:create, :destroy]
 end

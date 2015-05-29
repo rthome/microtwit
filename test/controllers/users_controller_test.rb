@@ -11,6 +11,11 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should redirect show when not logged in' do
+    get :show, id: @user
+    assert_redirected_to login_url
+  end
+
   test 'should redirect edit when not logged in' do
     get :edit, id: @user
     assert_not flash.empty?
@@ -55,5 +60,15 @@ class UsersControllerTest < ActionController::TestCase
       delete :destroy, id: @user
     end
     assert_redirected_to root_url
+  end
+
+  test 'should redirect follows when not logged in' do
+    get :follows, id: @user
+    assert_redirected_to login_url
+  end
+
+  test 'should redirect followers when not logged in' do
+    get :followers, id: @user
+    assert_redirected_to login_url
   end
 end

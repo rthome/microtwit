@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :update, :index, :destroy]
+  before_action :logged_in_user, only: [:show, :edit, :update, :index, :destroy, :follows, :followers]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
 
@@ -48,11 +48,17 @@ class UsersController < ApplicationController
   end
 
   def follows
-
+    @title = 'Follows'
+    @user = User.find(params[:id])
+    @users = @user.follows.paginate(page: params[:page])
+    render 'show_follow'
   end
 
   def followers
-
+    @title = 'Followers'
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
   end
 
   private

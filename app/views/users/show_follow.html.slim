@@ -1,0 +1,12 @@
+- provide :title, @title
+.row
+  aside.col-md-4
+    section.user-info
+      = render 'shared/user_info'
+      = render 'shared/user_grid', users: @users
+  .col-md-8
+    h3 = @title
+    - if @users.any?
+      ul.users.follow
+        = render @users
+      = will_paginate

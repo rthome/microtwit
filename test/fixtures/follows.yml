@@ -1,7 +1,12 @@
 one:
-  follower_id: 1
-  followed_id: 2
+  follower: john
+  followed: mary
 
 two:
-  follower_id: 1
-  followed_id: 1
+  follower: mary
+  followed: john
+
+three:
+  follower: jack
+  followed: john
+

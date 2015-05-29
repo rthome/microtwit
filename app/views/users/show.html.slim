@@ -8,6 +8,5 @@
       .page-header
         h3
           ' Chirps
-          small
-            = @user.chirps.count
+          small = @user.chirps.count
       = render 'shared/feed'

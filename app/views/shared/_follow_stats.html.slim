@@ -1,9 +1,9 @@
 - @user ||= current_user
 
 .follow-stats
-  a href=follows_user_path(@user)
-    strong#follows.stat = @user.follows.count
-    |  follows
-  a href=followers_user_path(@user)
-    strong#followers.stat = @user.followers.count
-    |  followers
+  a.text-info href=follows_user_path(@user)
+    | follows
+    strong#follows.stat< = @user.follows.count
+  a.text-info href=followers_user_path(@user)
+    strong#followers.stat> = @user.followers.count
+    | followers

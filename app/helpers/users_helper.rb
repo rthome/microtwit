@@ -7,6 +7,6 @@ module UsersHelper
     gravatar_id = gravatar_id_for(user)
     size = options[:size]
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}&d=identicon"
-    image_tag gravatar_url, alt: user.name, class: 'gravatar'
+    image_tag gravatar_url, alt: user.name, class: 'gravatar img-circle'
   end
 end

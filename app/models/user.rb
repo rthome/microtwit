@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    chirps
+    Chirp.where('user_id IN (?) OR user_id = ?', follow_ids, id)
   end
 
   def follow(other)

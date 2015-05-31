@@ -66,4 +66,19 @@ class UserTest < ActiveSupport::TestCase
     assert_not john.following?(harrison)
     assert_not harrison.followers.include?(john)
   end
+
+  test 'feed should have the correct chirps in it' do
+    john = users(:john)
+    mary = users(:mary) # followed by john
+    jack = users(:jack) # not followed by john
+    mary.chirps.each do |chirp|
+      assert john.feed.include?(chirp), 'Should have followed users chirps'
+    end
+    john.chirps.each do |chirp|
+      assert john.feed.include?(chirp), 'Should have own chirps'
+    end
+    jack.chirps.each do |chirp|
+      assert_not john.feed.include?(chirp), 'shoudl not have other users chirps'
+    end
+  end
 end

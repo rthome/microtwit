@@ -19,10 +19,22 @@ class FollowpagesTest < ActionDispatch::IntegrationTest
     chirp_content = "Created a new chirp at #{Time.zone.now.to_s}"
     get root_url
     assert_no_match chirp_content, response.body
-    post chirps_path, chirp: { content: chirp_content }
+    assert_difference 'Chirp.count', 1 do
+      post chirps_path, chirp: { content: chirp_content }
+    end
     assert_redirected_to root_url
-    get root_url
+    assert_not_empty flash
+    follow_redirect!
+    assert_template 'static_pages/home'
     assert_match chirp_content, response.body
+  end
+
+  test 'invalid chirp post leads to home page' do
+    post chirps_path, chirp: { content: '' } # no content
+    assert_template 'static_pages/home'
+    @user.feed.paginate(page: 1).each do |chirp|
+      assert_match CGI.escape_html(chirp.content), response.body
+    end
   end
 
   test 'follow page' do

@@ -20,3 +20,5 @@
 .idea/dataSources*
 .idea/runConfigurations
 .idea/Microtwit.iml
+
+coverage
